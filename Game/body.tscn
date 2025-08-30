@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxxy4luvgmmon"]
+
+[ext_resource type="Texture2D" uid="uid://dm2qrtydxk85d" path="res://Visual/navecita.png" id="1_2i6y6"]
+[ext_resource type="Script" uid="uid://cppdclqx81fh6" path="res://scripts/body.gd" id="1_in4ii"]
+[ext_resource type="Texture2D" uid="uid://bjn5dfigc75l5" path="res://Visual/arrow.png" id="3_bfrdl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_in4ii"]
+friction = 0.0
+bounce = 0.18
+
+[node name="body" type="RigidBody2D"]
+mass = 8.048
+physics_material_override = SubResource("PhysicsMaterial_in4ii")
+gravity_scale = 0.0
+script = ExtResource("1_in4ii")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(12, 5, 14, -1, 5, -5, 2, -11, 0, -22, -1, -22, -3, -10, -6, -5, -16, -1, -14, 5, -5, 10, -10, 16, -10, 21, -4, 19, 4, 19, 8, 21, 8, 16, 3, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.96046e-08, 1.19209e-07)
+scale = Vector2(0.554362, 0.605469)
+texture = ExtResource("1_2i6y6")
+
+[node name="turret" type="Sprite2D" parent="."]
+rotation = 0.00245313
+texture = ExtResource("3_bfrdl")
+centered = false
+offset = Vector2(-12, -48)
