@@ -8,6 +8,7 @@ var last_shot_time: float = -1.0
 @export var torque:float = 150
 @export var bullet_types: Array[BulletData]
 var current_weapon: int = 0
+var weapon: BulletData
 
 
 func _ready()->void:
@@ -21,7 +22,7 @@ func shoot() -> void:
 	if bullet_types.is_empty():
 		return
 	
-	var weapon: BulletData = bullet_types[current_weapon]
+	weapon = bullet_types[current_weapon]
 	if weapon.scene == null:
 		return
 	
@@ -41,6 +42,7 @@ func shoot() -> void:
 	bullet.global_rotation = $turret.global_rotation + PI/2 + wiggle
 	
 	get_tree().current_scene.add_child(bullet)
+	bullet.add_collision_exception_with(self)
 	
 	var dir = Vector2.RIGHT.rotated($turret.global_rotation + wiggle)
 	bullet.apply_central_impulse(dir * weapon.speed)

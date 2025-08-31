@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://brfranpox4i0b"]
+[gd_scene load_steps=19 format=4 uid="uid://brfranpox4i0b"]
 
 [ext_resource type="Texture2D" uid="uid://bmbfjte8w1sof" path="res://Visual/tilemap.png" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dxxy4luvgmmon" path="res://body.tscn" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxf8e5lee6h55" path="res://bullet.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://cvctld8v3d74c" path="res://scripts/BulletData.gd" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b7cmcl6rnxhiw" path="res://Visual/fast_bulllet.png" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://c651jk3ov43dn" path="res://foe.tscn" id="7_272bh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
 texture = ExtResource("1_1bvp3")
@@ -52,7 +53,7 @@ sources/0 = SubResource("TileSetAtlasSource_lquwl")
 [sub_resource type="Resource" id="Resource_5vw27"]
 resource_name = "fast_bullet"
 script = ExtResource("4_7mycd")
-speed = 800.0
+speed = 1000.0
 damage = 10
 blowback = 50.0
 cooldown = 0.2
@@ -87,6 +88,20 @@ size = Vector2(22, 668)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(1167, 46)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_272bh"]
+
+[sub_resource type="Resource" id="Resource_4c57u"]
+resource_name = "fast_bullet"
+script = ExtResource("4_7mycd")
+speed = 600.0
+damage = 4
+blowback = 5.0
+cooldown = 0.1
+sprite = ExtResource("5_272bh")
+scene = ExtResource("2_h2yge")
+dev = 0.15
+metadata/_custom_type_script = "uid://cvctld8v3d74c"
 
 [node name="Main" type="Node2D"]
 
@@ -163,3 +178,12 @@ physics_material_override = SubResource("PhysicsMaterial_h2yge")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_d2"]
 position = Vector2(25.5, 5)
 shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="foe" parent="." groups=["foe"] instance=ExtResource("7_272bh")]
+position = Vector2(190, 326)
+mass = 2.5
+physics_material_override = SubResource("PhysicsMaterial_272bh")
+ang_max = 2.0
+thrust = 700.0
+torque = 800.0
+bullet_types = Array[ExtResource("4_7mycd")]([SubResource("Resource_4c57u")])

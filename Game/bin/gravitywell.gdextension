@@ -1,0 +1,13 @@
+[configuration]
+entry_symbol = "gdextension_initialize"
+compatibility_minimum = "4.1"
+
+[libraries]
+windows.debug.x86_64 = "res://bin/Resources.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://bin/Resources.windows.template_debug.x86_64.dll"
+
+linux.debug.x86_64 = "res://bin/Resources.linux.debug.x86_64.so"
+linux.release.x86_64 = "res://bin/Resources.linux.release.x86_64.so"
+
+macos.debug.x86_64 = "res://bin/Resources.macos.debug.x86_64.dylib"
+macos.release.x86_64 = "res://bin/Resources.macos.release.x86_64.dylib"
