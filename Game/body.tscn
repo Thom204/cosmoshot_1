@@ -14,16 +14,21 @@ physics_material_override = SubResource("PhysicsMaterial_in4ii")
 gravity_scale = 0.0
 script = ExtResource("1_in4ii")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(12, 5, 14, -1, 5, -5, 2, -11, 0, -22, -1, -22, -3, -10, -6, -5, -16, -1, -14, 5, -5, 10, -10, 16, -10, 21, -4, 19, 4, 19, 8, 21, 8, 16, 3, 10)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5.96046e-08, 1.19209e-07)
-scale = Vector2(0.554362, 0.605469)
+position = Vector2(5.96046e-08, 1)
+rotation = 1.56726
+scale = Vector2(0.326001, 0.412027)
 texture = ExtResource("1_2i6y6")
 
 [node name="turret" type="Sprite2D" parent="."]
-rotation = 0.00245313
+position = Vector2(0.0203236, 0.997849)
+rotation = 0.000629425
+scale = Vector2(1.20049, 0.300206)
 texture = ExtResource("3_bfrdl")
 centered = false
 offset = Vector2(-12, -48)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["living"]]
+position = Vector2(1, 0)
+scale = Vector2(1.29567, -1.17287)
+polygon = PackedVector2Array(-5, -3, -3, -7, 0, -8, 2, -4, 11, -1, 11, 0, 2, 3, 0, 8, -3, 7, -5, 2, -7, 2, -10, 4, -10, -5, -7, -3)
